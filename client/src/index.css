@@ -233,18 +233,20 @@ The palette must stay warm, mature, restrained, and tactile: milk backgrounds, g
     color: var(--brand-graphite);
   }
 
-  .brand-monogram {
-    display: grid;
-    width: 2.75rem;
-    height: 2.75rem;
-    place-items: center;
-    border: 1px solid rgba(184, 155, 114, 0.52);
-    border-radius: 999px;
-    background: rgba(255, 253, 248, 0.62);
-    color: var(--brand-terracotta);
-    font-family: "Spectral", Georgia, serif;
-    font-size: 1.35rem;
-    box-shadow: 0 18px 50px rgba(79, 95, 85, 0.08);
+  .brand-logo-icon {
+    width: 3.1rem;
+    height: 3.1rem;
+    flex: 0 0 auto;
+    border-radius: 1.05rem;
+    filter: drop-shadow(0 18px 34px rgba(79, 95, 85, 0.11));
+    transition:
+      transform 260ms ease,
+      filter 260ms ease;
+  }
+
+  .brand-mark:hover .brand-logo-icon {
+    transform: translateY(-1px) rotate(-2deg);
+    filter: drop-shadow(0 22px 42px rgba(79, 95, 85, 0.16));
   }
 
   .brand-mark strong,
