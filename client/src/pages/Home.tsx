@@ -18,7 +18,7 @@ import {
   UserRound,
   Video,
 } from "lucide-react";
-import { toast } from "sonner";
+const telegramUrl = "https://t.me/Yuliapsychodramatist";
 
 const heroImage =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663559220273/oX7TcFRJv9UoQ7DnACq2pm/yulia-hero-therapy-room-UChiRB75i79LEQG3Fh7jt8.webp";
@@ -27,6 +27,7 @@ const bridgeImage =
 const methodImage = "/manus-storage/yulia-psychodrama-translated-draft-v2_7eaf9dba.png";
 const yuliaPortrait = "/manus-storage/yulia_premium_psychologist_with_glasses_c531cd93.png";
 const brandLogo = "/manus-storage/yulia-mystic-logo-variant-2-shell_0bbf7ae8.png";
+const sessionWithElderClient = "/manus-storage/yulia-session-elderly-client-variant-3-with-yulia_d0789f0d.png";
 
 const navItems = [
   { label: "Направления", href: "#directions" },
@@ -127,13 +128,6 @@ const faqs = [
   },
 ];
 
-function handleContactClick() {
-  toast("Контактные данные пока не добавлены", {
-    description:
-      "Сюда можно подключить Telegram, WhatsApp, телефон или форму записи после того, как вы передадите реальные контакты Юлии.",
-  });
-}
-
 function SectionHeading({
   eyebrow,
   title,
@@ -173,9 +167,9 @@ export default function Home() {
             ))}
           </div>
 
-          <button className="btn btn-quiet hidden md:inline-flex" onClick={handleContactClick}>
+          <a className="btn btn-quiet hidden md:inline-flex" href={telegramUrl} target="_blank" rel="noreferrer">
             Первичная консультация
-          </button>
+          </a>
         </nav>
       </header>
 
@@ -273,23 +267,36 @@ export default function Home() {
               title="Сложность семьи часто живёт сразу с двух сторон"
               text="Важная часть подхода — не усиливать обвинение, а бережно различать чувства, роли и реальные ограничения каждого участника."
             />
-            <div className="two-voices">
-              <article>
-                <span>Взрослый ребёнок может чувствовать</span>
-                <h3>тревогу, вину и бессилие</h3>
-                <p>
-                  Иногда кажется, что нужно одновременно быть ребёнком, организатором помощи, переговорщиком и человеком,
-                  который всё выдерживает. В такой позиции легко потерять собственные границы.
-                </p>
-              </article>
-              <article>
-                <span>Пожилой родитель может переживать</span>
-                <h3>уязвимость, стыд и потерю роли</h3>
-                <p>
-                  Просьбы о помощи могут звучать как контроль, а забота — как напоминание о зависимости. Поэтому работа
-                  требует уважительного тона и отказа от infantilизации.
-                </p>
-              </article>
+            <div className="family-complexity-layout">
+              <div className="two-voices">
+                <article>
+                  <span>Взрослый ребёнок может чувствовать</span>
+                  <h3>тревогу, вину и бессилие</h3>
+                  <p>
+                    Иногда кажется, что нужно одновременно быть ребёнком, организатором помощи, переговорщиком и человеком,
+                    который всё выдерживает. В такой позиции легко потерять собственные границы.
+                  </p>
+                </article>
+                <article>
+                  <span>Пожилой родитель может переживать</span>
+                  <h3>уязвимость, стыд и потерю роли</h3>
+                  <p>
+                    Просьбы о помощи могут звучать как контроль, а забота — как напоминание о зависимости. Поэтому работа
+                    требует уважительного тона и отказа от infantilизации.
+                  </p>
+                </article>
+              </div>
+
+              <figure className="session-story-card">
+                <img
+                  src={sessionWithElderClient}
+                  alt="Юлия во время спокойной рабочей встречи с пожилой клиенткой в тёплом кабинете"
+                />
+                <figcaption>
+                  <span>рабочая атмосфера</span>
+                  <strong>уважительная дистанция, внимание к обеим сторонам и мягкий темп разговора</strong>
+                </figcaption>
+              </figure>
             </div>
           </div>
         </section>
@@ -472,15 +479,15 @@ export default function Home() {
                 выбрать бережный следующий шаг: онлайн, кабинет или выезд по согласованию.
               </p>
               <div className="final-actions">
-                <button className="btn btn-primary" onClick={handleContactClick}>
+                <a className="btn btn-primary" href={telegramUrl} target="_blank" rel="noreferrer">
                   Записаться на консультацию
-                  <ArrowRight size={18} />
-                </button>
+                  <MessageCircle size={18} />
+                </a>
                 <a className="btn btn-secondary" href="#directions">
                   Вернуться к направлениям
                 </a>
               </div>
-              <small>Контактные данные и стоимость можно добавить после утверждения финального текста.</small>
+              <small>Telegram для первого сообщения: @Yuliapsychodramatist</small>
             </div>
           </div>
         </section>
