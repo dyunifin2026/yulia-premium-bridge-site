@@ -6,6 +6,7 @@ import {
   ArrowRight,
   BookOpen,
   Check,
+  ExternalLink,
   HeartHandshake,
   Home as HomeIcon,
   Leaf,
@@ -13,6 +14,7 @@ import {
   MessageCircle,
   ShieldCheck,
   Sparkles,
+  Train,
   UserRound,
   Video,
 } from "lucide-react";
@@ -30,6 +32,7 @@ const detailImage =
 const navItems = [
   { label: "Направления", href: "#directions" },
   { label: "Форматы", href: "#formats" },
+  { label: "Адрес", href: "#location" },
   { label: "Метод", href: "#method" },
   { label: "О Юлии", href: "#about" },
   { label: "FAQ", href: "#faq" },
@@ -83,13 +86,26 @@ const formats = [
   },
   {
     icon: MapPin,
-    title: "Кабинет в центре Москвы",
-    text: "Спокойная очная работа в профессиональном пространстве, где есть границы, приватность и возможность сосредоточиться на разговоре.",
+    title: "Кабинет на Проспекте Мира",
+    text: "Очная работа проходит в PsychoPlace: м. Проспект Мира, улица Щепкина, дом 47, строение 1, этаж 3.",
   },
   {
     icon: HomeIcon,
     title: "Выезд по согласованию",
     text: "Формат обсуждается отдельно, если состояние пожилого человека или семейная ситуация требуют более гибкого решения.",
+  },
+];
+
+const routeSteps = [
+  {
+    title: "От радиальной ветки",
+    meta: "м. Проспект Мира · выход 2",
+    text: "После выхода на поверхность сразу поверните направо. Перед зелёным зданием с лепниной поверните направо и пройдите через парковку в сторону стадиона «Олимпийский». Перейдите улицу Гиляровского по пешеходному переходу и идите прямо мимо церкви. Здание центра с башенкой будет прямо по маршруту; вход — большая серая дверь со стороны улицы Щепкина.",
+  },
+  {
+    title: "От кольцевой линии",
+    meta: "м. Проспект Мира · выход 1",
+    text: "На поверхности поверните направо и перейдите проспект через подземный пешеходный переход. Далее идите в сторону стадиона «Олимпийский» прямо до улицы Щепкина, перейдите её по пешеходному переходу, поверните направо и двигайтесь до входа в здание с башенкой. Вход — большая серая дверь со стороны улицы Щепкина.",
   },
 ];
 
@@ -319,6 +335,42 @@ export default function Home() {
                   </article>
                 );
               })}
+            </div>
+          </div>
+        </section>
+
+        <section id="location" className="section-block location-section">
+          <div className="container">
+            <div className="location-layout">
+              <div className="location-card">
+                <span className="section-eyebrow">Офлайн-кабинет</span>
+                <h2>Проспект Мира, PsychoPlace</h2>
+                <p>
+                  Очные консультации проходят по адресу: м. Проспект Мира, улица Щепкина, дом 47, строение 1,
+                  этаж 3. При входе скажите консьержу, что идёте в PsychoPlace, офис номер 6, и поднимайтесь
+                  на 2-й этаж; по факту подъём ощущается как два с половиной этажа.
+                </p>
+                <div className="location-actions">
+                  <a className="btn btn-primary" href="https://psy.place/co/shchepkina-pm" target="_blank" rel="noreferrer">
+                    Открыть фотомаршрут
+                    <ExternalLink size={17} />
+                  </a>
+                  <a className="btn btn-secondary" href="https://psy.place/places/prospekt-mira/prospekt-mira-3" target="_blank" rel="noreferrer">
+                    Страница места
+                  </a>
+                </div>
+              </div>
+
+              <div className="route-grid" aria-label="Как найти кабинет от метро Проспект Мира">
+                {routeSteps.map((route) => (
+                  <article className="route-card" key={route.title}>
+                    <Train size={22} />
+                    <span>{route.meta}</span>
+                    <h3>{route.title}</h3>
+                    <p>{route.text}</p>
+                  </article>
+                ))}
+              </div>
             </div>
           </div>
         </section>
