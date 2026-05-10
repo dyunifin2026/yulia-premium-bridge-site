@@ -24,8 +24,6 @@ const heroImage =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663559220273/oX7TcFRJv9UoQ7DnACq2pm/yulia-hero-therapy-room-UChiRB75i79LEQG3Fh7jt8.webp";
 const bridgeImage =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663559220273/oX7TcFRJv9UoQ7DnACq2pm/yulia-bridge-abstract-fx2j2chjrrf7sNPkCZ5gs6.webp";
-const methodImage =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663559220273/oX7TcFRJv9UoQ7DnACq2pm/yulia-method-psychodrama-fHRyXC4ZXvrZtyAigsdDTk.webp";
 const detailImage =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663559220273/oX7TcFRJv9UoQ7DnACq2pm/yulia-consultation-detail-5qVTXJiThyK3ME3i3bnuAz.webp";
 
@@ -392,8 +390,60 @@ export default function Home() {
                 <span>новый контакт</span>
               </div>
             </div>
-            <div className="method-image-frame">
-              <img src={methodImage} alt="Концептуальная схема психодрамы с креслами и линиями диалога" />
+            <div className="method-image-frame method-illustration-frame" aria-label="Русскоязычная схема психодраматического процесса">
+              <svg className="method-illustration" viewBox="0 0 760 560" role="img" aria-labelledby="psychodrama-title psychodrama-desc">
+                <title id="psychodrama-title">Психодрама как метод</title>
+                <desc id="psychodrama-desc">Премиальная схема с креслами, мостом ролей и русскими подписями: я, роль, диалог, новый контакт.</desc>
+                <defs>
+                  <linearGradient id="methodWall" x1="0" x2="1" y1="0" y2="1">
+                    <stop offset="0%" stopColor="#f4efe6" />
+                    <stop offset="55%" stopColor="#d8c2a5" />
+                    <stop offset="100%" stopColor="#9d7458" />
+                  </linearGradient>
+                  <linearGradient id="methodGold" x1="0" x2="1">
+                    <stop offset="0%" stopColor="#9b6f42" />
+                    <stop offset="100%" stopColor="#d7b781" />
+                  </linearGradient>
+                  <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="0" dy="18" stdDeviation="18" floodColor="#5c4638" floodOpacity="0.22" />
+                  </filter>
+                </defs>
+                <rect width="760" height="560" rx="34" fill="url(#methodWall)" />
+                <path d="M0 398 C170 348 328 426 520 374 C621 347 690 315 760 333 L760 560 L0 560 Z" fill="#eee5d8" opacity="0.72" />
+                <path d="M120 410 C210 340 310 322 395 360 C492 404 560 387 650 306" fill="none" stroke="url(#methodGold)" strokeWidth="5" strokeLinecap="round" opacity="0.9" />
+                <g opacity="0.42">
+                  <path d="M172 86 C172 58 194 36 222 36 L222 36 C250 36 272 58 272 86 L272 390 L172 390 Z" fill="#c27f56" />
+                  <path d="M304 118 C304 90 326 68 354 68 L354 68 C382 68 404 90 404 118 L404 390 L304 390 Z" fill="#f0dcc2" />
+                  <path d="M436 74 C436 46 458 24 486 24 L486 24 C514 24 536 46 536 74 L536 390 L436 390 Z" fill="#8f927a" />
+                </g>
+                <ellipse cx="380" cy="418" rx="292" ry="82" fill="#d9c8b4" opacity="0.55" />
+                <g filter="url(#softShadow)">
+                  <g transform="translate(120 292)">
+                    <rect x="0" y="32" width="116" height="24" rx="12" fill="#e7d8c5" />
+                    <path d="M18 32 C20 3 99 3 102 32" fill="#8d5137" />
+                    <line x1="18" y1="56" x2="8" y2="132" stroke="#6c442f" strokeWidth="7" strokeLinecap="round" />
+                    <line x1="100" y1="56" x2="110" y2="132" stroke="#6c442f" strokeWidth="7" strokeLinecap="round" />
+                  </g>
+                  <g transform="translate(322 270)">
+                    <rect x="0" y="38" width="126" height="26" rx="13" fill="#efe2d0" />
+                    <path d="M18 38 C24 4 102 4 108 38" fill="#5f493a" />
+                    <line x1="18" y1="64" x2="8" y2="148" stroke="#4d3d33" strokeWidth="8" strokeLinecap="round" />
+                    <line x1="108" y1="64" x2="118" y2="148" stroke="#4d3d33" strokeWidth="8" strokeLinecap="round" />
+                  </g>
+                  <g transform="translate(530 292)">
+                    <rect x="0" y="32" width="116" height="24" rx="12" fill="#e5d1bd" />
+                    <path d="M16 32 C21 2 100 2 104 32" fill="#a76445" />
+                    <line x1="18" y1="56" x2="8" y2="132" stroke="#7a4b35" strokeWidth="7" strokeLinecap="round" />
+                    <line x1="100" y1="56" x2="110" y2="132" stroke="#7a4b35" strokeWidth="7" strokeLinecap="round" />
+                  </g>
+                </g>
+                <g className="method-labels">
+                  <text x="177" y="466">Я</text>
+                  <text x="339" y="438">роль</text>
+                  <text x="540" y="466">диалог</text>
+                  <text x="316" y="514">новый контакт</text>
+                </g>
+              </svg>
             </div>
           </div>
         </section>

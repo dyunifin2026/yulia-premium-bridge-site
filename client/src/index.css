@@ -979,3 +979,40 @@ The palette must stay warm, mature, restrained, and tactile: milk backgrounds, g
     }
   }
 }
+
+/*
+  Философия файла: «Премиальный мост между поколениями».
+  Этот блок поддерживает контролируемую русскоязычную иллюстрацию психодрамы без внешних текстовых артефактов.
+*/
+.method-illustration-frame {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.78), transparent 34%),
+    linear-gradient(135deg, rgba(248, 241, 229, 0.96), rgba(196, 158, 128, 0.38));
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.method-illustration {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  transform: scale(1.012);
+}
+
+.method-labels text {
+  font-family: "Manrope", system-ui, sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  fill: #4b382e;
+  paint-order: stroke;
+  stroke: rgba(246, 238, 226, 0.74);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+}
+
+.method-illustration-frame:hover .method-illustration {
+  transform: scale(1.025);
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
