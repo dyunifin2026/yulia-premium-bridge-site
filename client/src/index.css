@@ -846,8 +846,27 @@ The palette must stay warm, mature, restrained, and tactile: milk backgrounds, g
     min-height: 31rem;
   }
 
+  .method-approved-frame {
+    display: grid;
+    place-items: center;
+    background: #eee8dd;
+  }
+
+  .method-approved-frame img {
+    object-fit: contain;
+  }
+
   .about-image {
     min-height: 32rem;
+  }
+
+  .about-portrait {
+    border-radius: 45% 45% 2.3rem 2.3rem;
+    background: linear-gradient(135deg, rgba(250, 247, 241, 0.9), rgba(184, 155, 114, 0.24));
+  }
+
+  .about-portrait img {
+    object-position: center top;
   }
 
   .credentials {
