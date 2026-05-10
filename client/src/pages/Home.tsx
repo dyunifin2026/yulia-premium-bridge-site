@@ -26,6 +26,7 @@ const bridgeImage =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663559220273/oX7TcFRJv9UoQ7DnACq2pm/yulia-bridge-abstract-fx2j2chjrrf7sNPkCZ5gs6.webp";
 const methodImage = "/manus-storage/yulia-psychodrama-translated-draft-v2_7eaf9dba.png";
 const yuliaPortrait = "/manus-storage/yulia_premium_psychologist_with_glasses_c531cd93.png";
+const brandLogo = "/manus-storage/yulia-mystic-logo-variant-2-shell_0bbf7ae8.png";
 
 const navItems = [
   { label: "Направления", href: "#directions" },
@@ -157,26 +158,7 @@ export default function Home() {
       <header className="sticky top-0 z-50 border-b border-[rgba(37,37,37,0.08)] bg-[rgba(250,247,241,0.82)] backdrop-blur-xl">
         <nav className="container flex h-20 items-center justify-between gap-6">
           <a href="#top" className="brand-mark" aria-label="На главную">
-            <svg className="brand-logo-icon" viewBox="0 0 128 128" role="img" aria-hidden="true">
-              <defs>
-                <radialGradient id="logoMilk" cx="36%" cy="24%" r="82%">
-                  <stop offset="0%" stopColor="#fffdf8" />
-                  <stop offset="64%" stopColor="#f4ede2" />
-                  <stop offset="100%" stopColor="#e3d1b8" />
-                </radialGradient>
-                <linearGradient id="logoGold" x1="18" y1="18" x2="110" y2="112">
-                  <stop offset="0%" stopColor="#d5b57c" />
-                  <stop offset="42%" stopColor="#9b6f42" />
-                  <stop offset="100%" stopColor="#6d4a31" />
-                </linearGradient>
-              </defs>
-              <rect x="8" y="8" width="112" height="112" rx="36" fill="url(#logoMilk)" />
-              <circle cx="64" cy="64" r="48" fill="none" stroke="url(#logoGold)" strokeWidth="2.4" opacity="0.78" />
-              <path d="M31 76 C42 95 86 95 97 76" fill="none" stroke="url(#logoGold)" strokeWidth="2.2" strokeLinecap="round" opacity="0.72" />
-              <path d="M41 39 L41 48 C47 48 49 51 49 58 L49 76 C49 84 54 90 63 90 C72 90 77 84 77 76 L77 48 L87 48 L87 39 L67 39 L67 48 L69 48 L69 75 C69 80 67 83 63 83 C59 83 57 80 57 75 L57 58 C57 47 51 40 41 39 Z" fill="url(#logoGold)" />
-              <circle cx="96" cy="64" r="3.2" fill="#9b6f42" opacity="0.88" />
-              <circle cx="32" cy="64" r="3.2" fill="#9b6f42" opacity="0.88" />
-            </svg>
+            <img className="brand-logo-icon" src={brandLogo} alt="Фирменный знак Юлии" />
             <span>
               <strong>Юлия</strong>
               <small>психолог · психодраматист</small>
