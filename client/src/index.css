@@ -997,7 +997,7 @@ The palette must stay warm, mature, restrained, and tactile: milk backgrounds, g
     padding: clamp(5rem, 9vw, 8.5rem) 0;
     background:
       linear-gradient(rgba(250, 247, 241, 0.55), rgba(250, 247, 241, 1)),
-      url("https://d2xsxph8kpxj0f.cloudfront.net/310519663559220273/oX7TcFRJv9UoQ7DnACq2pm/yulia-bridge-abstract-fx2j2chjrrf7sNPkCZ5gs6.webp") center/cover;
+      url("/images/yulia-bridge.webp") center/cover;
   }
 
   .final-card {
