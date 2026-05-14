@@ -20,14 +20,12 @@ import {
 } from "lucide-react";
 const telegramUrl = "https://t.me/Yuliapsychodramatist";
 
-const heroImage =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663559220273/oX7TcFRJv9UoQ7DnACq2pm/yulia-hero-therapy-room-UChiRB75i79LEQG3Fh7jt8.webp";
-const bridgeImage =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663559220273/oX7TcFRJv9UoQ7DnACq2pm/yulia-bridge-abstract-fx2j2chjrrf7sNPkCZ5gs6.webp";
-const methodImage = "/manus-storage/yulia-psychodrama-translated-draft-v2_7eaf9dba.png";
-const yuliaPortrait = "/manus-storage/yulia_premium_psychologist_with_glasses_c531cd93.png";
-const brandLogo = "/manus-storage/yulia-mystic-logo-variant-2-shell_0bbf7ae8.png";
-const sessionWithElderClient = "/manus-storage/yulia-session-elderly-client-variant-3-with-yulia_d0789f0d.png";
+const heroImage = "/images/yulia-hero.webp";
+const bridgeImage = "/images/yulia-bridge.webp";
+const methodImage = "/images/yulia-psychodrama.webp";
+const yuliaPortrait = "/images/yulia-portrait.webp";
+const brandLogo = "/images/yulia-logo.webp";
+const sessionWithElderClient = "/images/yulia-session-elderly.webp";
 
 const navItems = [
   { label: "Направления", href: "#directions" },
