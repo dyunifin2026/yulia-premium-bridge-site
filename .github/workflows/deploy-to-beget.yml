@@ -40,3 +40,4 @@ jobs:
           exclude: |
             **/__manus__/**
             **/.gitkeep
+            
