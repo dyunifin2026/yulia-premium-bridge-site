@@ -34,13 +34,14 @@ jobs:
           server: ${{ secrets.BEGET_FTP_HOST }}
           username: ${{ secrets.BEGET_FTP_USER }}
           password: ${{ secrets.BEGET_FTP_PASS }}
-          local-dir: ./dist/
+          local-dir: ./dist/public/
           server-dir: ${{ secrets.BEGET_FTP_DIR }}
           dangerous-clean-slate: false
           exclude: |
             **/__manus__/**
             **/.gitkeep
             
+
 
 
 
