@@ -1117,3 +1117,57 @@ The palette must stay warm, mature, restrained, and tactile: milk backgrounds, g
   transform: scale(1.025);
   transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
 }
+
+/* ── Process steps block ──────────────────────────────────────────────── */
+.process-steps {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+  .process-steps {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+.process-step {
+  position: relative;
+  padding: clamp(1.5rem, 3vw, 2.4rem);
+  border: 1px solid rgba(37, 37, 37, 0.08);
+  border-radius: 1.6rem;
+  background: rgba(255, 253, 248, 0.64);
+  box-shadow: 0 20px 56px rgba(79, 95, 85, 0.07);
+  transition: transform 320ms ease, box-shadow 320ms ease;
+}
+
+.process-step:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 72px rgba(79, 95, 85, 0.12);
+}
+
+.process-num {
+  display: inline-block;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--brand-terracotta);
+  opacity: 0.55;
+  margin-bottom: 1rem;
+}
+
+.process-step h3 {
+  font-size: clamp(1.4rem, 2vw, 1.85rem);
+  font-weight: 600;
+  color: var(--brand-graphite);
+  margin-bottom: 0.65rem;
+}
+
+.process-step p {
+  font-size: 0.97rem;
+  line-height: 1.7;
+  color: var(--brand-graphite);
+  opacity: 0.78;
+}

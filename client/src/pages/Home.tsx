@@ -1,6 +1,8 @@
 /*
 Design reminder for this page: "Премиальный гуманистический минимализм с мотивом межпоколенческого моста".
-Every section must reinforce a warm private practice, clear professional boundaries, two client paths, and a subtle bridge/contact metaphor.
+Positioning: warm, emotionally intelligent, premium private practice — NOT clinical, NOT mass-market.
+Two audiences: adult child (40–60, decision-maker) + elderly parent (65+, shown the site by child).
+Every section must reinforce emotional safety, professional trust, and a gentle bridge metaphor.
 */
 import {
   ArrowRight,
@@ -39,17 +41,35 @@ const navItems = [
 const directions = [
   {
     title: "Родитель и семейный контакт",
-    eyebrow: "Первый путь",
-    text: "Поддержка пожилого родителя, взрослого ребёнка и семьи там, где накопленные обиды, тревога или усталость мешают говорить спокойно.",
+    eyebrow: "Для взрослого ребёнка",
+    text: "Поддержка, когда вы чувствуете тревогу, вину или усталость от ситуации с пожилым родителем — и хотите найти более спокойный способ быть рядом.",
     points: ["бережный первичный разбор", "уважение к обеим сторонам", "поиск возможного формата встречи"],
     tone: "warm",
   },
   {
     title: "Терапия для себя",
-    eyebrow: "Второй путь",
+    eyebrow: "Индивидуальная работа",
     text: "Индивидуальная работа со взрослыми людьми, которые проходят жизненный переход, кризис, потерю опоры или сложное изменение роли.",
     points: ["личные границы", "зрелые решения", "поддержка в переходных периодах"],
     tone: "cool",
+  },
+];
+
+const processSteps = [
+  {
+    num: "01",
+    title: "Вводная беседа",
+    text: "Короткий разговор — 20–30 минут — чтобы описать ситуацию, понять, что сейчас важно, и определить, какой формат работы имеет смысл.",
+  },
+  {
+    num: "02",
+    title: "Выбор формата",
+    text: "Вместе выбираем: индивидуальная консультация, встреча с родителем или семейный разговор при согласии участников. Никакого давления.",
+  },
+  {
+    num: "03",
+    title: "Регулярная работа",
+    text: "Встречи проходят в удобном ритме — онлайн или в кабинете. Темп и глубина работы определяются запросом, а не заранее заданной программой.",
   },
 ];
 
@@ -124,6 +144,14 @@ const faqs = [
     q: "Психодрама — это обязательно сцена и роли?",
     a: "Нет. В частной практике метод может использоваться очень сдержанно: через исследование ролей, внутренних диалогов и незавершённых разговоров.",
   },
+  {
+    q: "Что происходит на вводной беседе?",
+    a: "Это короткий разговор — около 20–30 минут. Вы описываете ситуацию, Юлия задаёт уточняющие вопросы, и вместе вы определяете, какой формат работы имеет смысл и реалистичен.",
+  },
+  {
+    q: "Как долго обычно длится работа?",
+    a: "Это зависит от запроса. Иногда достаточно нескольких встреч, чтобы прояснить ситуацию и найти опору. Более глубокая работа строится постепенно, без заранее заданных сроков.",
+  },
 ];
 
 function SectionHeading({
@@ -166,21 +194,22 @@ export default function Home() {
           </div>
 
           <a className="btn btn-quiet hidden md:inline-flex" href={telegramUrl} target="_blank" rel="noreferrer">
-            Первичная консультация
+            Вводная беседа
           </a>
         </nav>
       </header>
 
       <main id="top">
+        {/* HERO — clear positioning in first 5 seconds */}
         <section className="hero-section overflow-hidden">
           <div className="container relative grid min-h-[calc(100vh-5rem)] items-center gap-12 py-16 lg:grid-cols-[0.92fr_1.08fr] lg:py-24">
             <div className="hero-copy animate-fade-up">
-              <span className="section-eyebrow">Премиальная частная практика</span>
-              <h1>Психологическая поддержка для взрослых людей, пожилых родителей и контакта между поколениями</h1>
+              <span className="section-eyebrow">Частная психологическая практика · Москва</span>
+              <h1>Поддержка для взрослых детей и пожилых родителей — там, где разговор стал трудным</h1>
               <p className="hero-lead">
-                Юлия — дипломированный психолог и психодраматист. Она помогает взрослым людям проходить жизненные кризисы,
-                сопровождает пожилых родителей и поддерживает семьи там, где старые обиды, тревога и усталость мешают
-                говорить друг с другом спокойно.
+                Юлия — дипломированный психолог и психодраматист. Она работает с взрослыми людьми, которые устали
+                нести тревогу за стареющего родителя, и с пожилыми людьми, которым важно чувствовать себя
+                услышанными — а не «проблемой» для семьи.
               </p>
 
               <div className="format-strip" aria-label="Форматы работы">
@@ -192,17 +221,17 @@ export default function Home() {
               </div>
 
               <div className="hero-actions">
-                <a className="btn btn-primary" href="#directions">
-                  Поддержка для родителя и семьи
+                <a className="btn btn-primary" href={telegramUrl} target="_blank" rel="noreferrer">
+                  Вводная беседа
                   <ArrowRight size={18} />
                 </a>
-                <a className="btn btn-secondary" href="#individual">
-                  Терапия для себя
+                <a className="btn btn-secondary" href="#directions">
+                  Узнать о форматах работы
                 </a>
               </div>
 
               <p className="microcopy">
-                Можно начать с первичной консультации, чтобы описать ситуацию и выбрать подходящий формат работы.
+                Вводная беседа — это короткий разговор, чтобы описать ситуацию и выбрать подходящий формат работы. Без давления и обязательств.
               </p>
             </div>
 
@@ -218,6 +247,80 @@ export default function Home() {
           </div>
         </section>
 
+        {/* DUAL AUDIENCE — speaks to both adult child and elderly parent */}
+        <section className="section-block muted-section">
+          <div className="container">
+            <SectionHeading
+              eyebrow="Кому это может помочь"
+              title="Сложность семьи часто живёт сразу с двух сторон"
+              text="Важная часть подхода — не усиливать обвинение, а бережно различать чувства, роли и реальные ограничения каждого участника."
+            />
+            <div className="family-complexity-layout">
+              <div className="two-voices">
+                <article>
+                  <span>Взрослый ребёнок может чувствовать</span>
+                  <h3>тревогу, вину и бессилие</h3>
+                  <p>
+                    Иногда кажется, что нужно одновременно быть ребёнком, организатором помощи, переговорщиком и человеком,
+                    который всё выдерживает. В такой позиции легко потерять собственные границы.
+                  </p>
+                </article>
+                <article>
+                  <span>Пожилой родитель может переживать</span>
+                  <h3>уязвимость, стыд и потерю роли</h3>
+                  <p>
+                    Просьбы о помощи могут звучать как контроль, а забота — как напоминание о зависимости. Поэтому работа
+                    требует уважительного тона и отказа от инфантилизации.
+                  </p>
+                </article>
+              </div>
+
+              <figure className="session-story-card">
+                <img
+                  src={sessionWithElderClient}
+                  alt="Юлия во время спокойной рабочей встречи с пожилой клиенткой в тёплом кабинете"
+                />
+                <figcaption>
+                  <span>рабочая атмосфера</span>
+                  <strong>уважительная дистанция, внимание к обеим сторонам и мягкий темп разговора</strong>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        {/* ABOUT YULIA — moved higher for trust and warmth */}
+        <section id="about" className="section-block about-section">
+          <div className="container grid gap-12 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+            <div className="about-image about-portrait">
+              <img src={yuliaPortrait} alt="Портрет Юлии, психолога-психодраматиста, в спокойном кабинете" />
+            </div>
+            <div>
+              <span className="section-eyebrow">О Юлии</span>
+              <h2>Дипломированный психолог-психодраматист с уважением к границам клиента</h2>
+              <p>
+                Юлия работает с взрослыми людьми, семьями и пожилыми родителями в ситуациях, где важны не быстрые советы,
+                а аккуратное различение чувств, ролей, границ и возможных шагов.
+              </p>
+              <div className="credentials">
+                <div>
+                  <BookOpen size={22} />
+                  <span>психологическое образование и психодраматический подход</span>
+                </div>
+                <div>
+                  <ShieldCheck size={22} />
+                  <span>ясные профессиональные, этические и медицинские границы</span>
+                </div>
+                <div>
+                  <Sparkles size={22} />
+                  <span>сдержанный, уважительный тон без давления и обещаний гарантированного результата</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* DIRECTIONS */}
         <section id="directions" className="section-block">
           <div className="container">
             <SectionHeading
@@ -258,47 +361,27 @@ export default function Home() {
           </div>
         </section>
 
+        {/* PROCESS — how it works */}
         <section className="section-block muted-section">
           <div className="container">
             <SectionHeading
-              eyebrow="Когда контакт становится трудным"
-              title="Сложность семьи часто живёт сразу с двух сторон"
-              text="Важная часть подхода — не усиливать обвинение, а бережно различать чувства, роли и реальные ограничения каждого участника."
+              eyebrow="Как устроена работа"
+              title="Три шага — без обязательств и давления"
+              text="Начать можно с короткого разговора. Никаких предварительных решений, никакой необходимости сразу собирать всех участников."
             />
-            <div className="family-complexity-layout">
-              <div className="two-voices">
-                <article>
-                  <span>Взрослый ребёнок может чувствовать</span>
-                  <h3>тревогу, вину и бессилие</h3>
-                  <p>
-                    Иногда кажется, что нужно одновременно быть ребёнком, организатором помощи, переговорщиком и человеком,
-                    который всё выдерживает. В такой позиции легко потерять собственные границы.
-                  </p>
+            <div className="process-steps">
+              {processSteps.map((step) => (
+                <article className="process-step" key={step.num}>
+                  <span className="process-num">{step.num}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.text}</p>
                 </article>
-                <article>
-                  <span>Пожилой родитель может переживать</span>
-                  <h3>уязвимость, стыд и потерю роли</h3>
-                  <p>
-                    Просьбы о помощи могут звучать как контроль, а забота — как напоминание о зависимости. Поэтому работа
-                    требует уважительного тона и отказа от infantilизации.
-                  </p>
-                </article>
-              </div>
-
-              <figure className="session-story-card">
-                <img
-                  src={sessionWithElderClient}
-                  alt="Юлия во время спокойной рабочей встречи с пожилой клиенткой в тёплом кабинете"
-                />
-                <figcaption>
-                  <span>рабочая атмосфера</span>
-                  <strong>уважительная дистанция, внимание к обеим сторонам и мягкий темп разговора</strong>
-                </figcaption>
-              </figure>
+              ))}
             </div>
           </div>
         </section>
 
+        {/* SUPPORT CARDS */}
         <section className="section-block">
           <div className="container">
             <SectionHeading
@@ -321,6 +404,7 @@ export default function Home() {
           </div>
         </section>
 
+        {/* FORMATS */}
         <section id="formats" className="section-block format-section">
           <div className="container">
             <SectionHeading
@@ -343,6 +427,7 @@ export default function Home() {
           </div>
         </section>
 
+        {/* LOCATION */}
         <section id="location" className="section-block location-section">
           <div className="container">
             <div className="location-layout">
@@ -379,6 +464,7 @@ export default function Home() {
           </div>
         </section>
 
+        {/* METHOD */}
         <section id="method" className="section-block method-section">
           <div className="container grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
             <div>
@@ -402,36 +488,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="about" className="section-block about-section">
-          <div className="container grid gap-12 lg:grid-cols-[1fr_0.9fr] lg:items-center">
-            <div className="about-image about-portrait">
-              <img src={yuliaPortrait} alt="Портрет Юлии, психолога-психодраматиста, в спокойном кабинете" />
-            </div>
-            <div>
-              <span className="section-eyebrow">О Юлии</span>
-              <h2>Дипломированный психолог-психодраматист с уважением к границам клиента</h2>
-              <p>
-                Юлия работает с взрослыми людьми, семьями и пожилыми родителями в ситуациях, где важны не быстрые советы,
-                а аккуратное различение чувств, ролей, границ и возможных шагов.
-              </p>
-              <div className="credentials">
-                <div>
-                  <BookOpen size={22} />
-                  <span>психологическое образование и психодраматический подход</span>
-                </div>
-                <div>
-                  <ShieldCheck size={22} />
-                  <span>ясные профессиональные, этические и медицинские границы</span>
-                </div>
-                <div>
-                  <Sparkles size={22} />
-                  <span>сдержанный, уважительный тон без давления и обещаний гарантированного результата</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
+        {/* BOUNDARY */}
         <section className="section-block boundary-section">
           <div className="container">
             <div className="boundary-card">
@@ -449,6 +506,7 @@ export default function Home() {
           </div>
         </section>
 
+        {/* FAQ */}
         <section id="faq" className="section-block faq-section">
           <div className="container">
             <SectionHeading
@@ -467,25 +525,26 @@ export default function Home() {
           </div>
         </section>
 
+        {/* FINAL CTA — premium, non-aggressive */}
         <section id="contact" className="final-cta">
           <div className="container">
             <div className="final-card">
               <span className="section-eyebrow">Первый шаг</span>
-              <h2>Можно начать с короткого описания ситуации</h2>
+              <h2>Начните с короткого разговора</h2>
               <p>
-                Расскажите, кто обращается, что происходит сейчас и какой формат кажется возможным. После этого можно
-                выбрать бережный следующий шаг: онлайн, кабинет или выезд по согласованию.
+                Вводная беседа — это 20–30 минут, чтобы описать ситуацию, задать вопросы и понять, какой формат
+                работы имеет смысл. Это не терапевтическая сессия и не обязательство продолжать.
               </p>
               <div className="final-actions">
                 <a className="btn btn-primary" href={telegramUrl} target="_blank" rel="noreferrer">
-                  Записаться на консультацию
+                  Написать в Telegram
                   <MessageCircle size={18} />
                 </a>
                 <a className="btn btn-secondary" href="#directions">
-                  Вернуться к направлениям
+                  Узнать о направлениях
                 </a>
               </div>
-              <small>Telegram для первого сообщения: @Yuliapsychodramatist</small>
+              <small>Telegram: @Yuliapsychodramatist · ответ в течение дня</small>
             </div>
           </div>
         </section>
