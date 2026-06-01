@@ -1036,6 +1036,57 @@ The palette must stay warm, mature, restrained, and tactile: milk backgrounds, g
     color: var(--brand-blue);
   }
 
+  /* Volunteer note block */
+  .volunteer-note {
+    margin-top: 1.8rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid rgba(37, 37, 37, 0.1);
+  }
+
+  .volunteer-note__label {
+    display: block;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(37, 37, 37, 0.42);
+    margin-bottom: 0.6rem;
+  }
+
+  .volunteer-note__content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .volunteer-note__content p {
+    margin: 0;
+    font-size: 0.88rem;
+    color: rgba(37, 37, 37, 0.65);
+    line-height: 1.5;
+    flex: 1;
+    min-width: 160px;
+  }
+
+  .volunteer-note__logo-link {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    opacity: 0.75;
+    transition: opacity 0.2s ease;
+  }
+
+  .volunteer-note__logo-link:hover {
+    opacity: 1;
+  }
+
+  .volunteer-note__logo {
+    height: 2.4rem;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(20%);
+  }
+
   .boundary-card,
   .final-card {
     border: 1px solid rgba(184, 155, 114, 0.26);
