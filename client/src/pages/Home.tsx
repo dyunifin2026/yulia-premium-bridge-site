@@ -190,8 +190,8 @@ export default function Home() {
           <a href="#top" className="brand-mark" aria-label="На главную">
             <img className="brand-logo-icon" src={brandLogo} alt="Фирменный знак Юлии" />
             <span>
-              <strong>Юлия Александровская</strong>
-              <small>психолог · психодраматист</small>
+              <strong>Юлия Валерьевна Александровская</strong>
+               <small>психолог · психодраматист</small>
             </span>
           </a>
 
@@ -291,7 +291,7 @@ export default function Home() {
                     className="hero-quote-portrait"
                   />
                   <div>
-                    <strong>Юлия Александровская</strong>
+                    <strong>Юлия Валерьевна Александровская</strong>
                     <span>психолог · психодраматист</span>
                   </div>
                 </div>
