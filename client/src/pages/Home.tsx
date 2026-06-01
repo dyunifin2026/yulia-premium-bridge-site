@@ -3,7 +3,9 @@ Design reminder for this page: "Премиальный гуманистичес�
 Positioning: warm, emotionally intelligent, premium private practice — NOT clinical, NOT mass-market.
 Two audiences: adult child (40–60, decision-maker) + elderly parent (65+, shown the site by child).
 Every section must reinforce emotional safety, professional trust, and a gentle bridge metaphor.
+Voice: first person — Yulia speaks directly to the visitor.
 */
+import { useState } from "react";
 import {
   ArrowRight,
   BookOpen,
@@ -13,12 +15,14 @@ import {
   Home as HomeIcon,
   Leaf,
   MapPin,
+  Menu,
   MessageCircle,
   ShieldCheck,
   Sparkles,
   Train,
   UserRound,
   Video,
+  X,
 } from "lucide-react";
 const telegramUrl = "https://t.me/Yuliapsychodramatist";
 
@@ -34,7 +38,7 @@ const navItems = [
   { label: "Форматы", href: "#formats" },
   { label: "Адрес", href: "#location" },
   { label: "Метод", href: "#method" },
-  { label: "О Юлии", href: "#about" },
+  { label: "Обо мне", href: "#about" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -42,14 +46,14 @@ const directions = [
   {
     title: "Родитель и семейный контакт",
     eyebrow: "Для взрослого ребёнка",
-    text: "Поддержка, когда вы чувствуете тревогу, вину или усталость от ситуации с пожилым родителем — и хотите найти более спокойный способ быть рядом.",
+    text: "Я работаю с теми, кто чувствует тревогу, вину или усталость от ситуации с пожилым родителем — и хочет найти более спокойный способ быть рядом.",
     points: ["бережный первичный разбор", "уважение к обеим сторонам", "поиск возможного формата встречи"],
     tone: "warm",
   },
   {
     title: "Терапия для себя",
     eyebrow: "Индивидуальная работа",
-    text: "Индивидуальная работа со взрослыми людьми, которые проходят жизненный переход, кризис, потерю опоры или сложное изменение роли.",
+    text: "Я работаю со взрослыми людьми, которые проходят жизненный переход, кризис, потерю опоры или сложное изменение роли.",
     points: ["личные границы", "зрелые решения", "поддержка в переходных периодах"],
     tone: "cool",
   },
@@ -59,7 +63,7 @@ const processSteps = [
   {
     num: "01",
     title: "Вводная беседа",
-    text: "Короткий разговор — 20–30 минут — чтобы описать ситуацию, понять, что сейчас важно, и определить, какой формат работы имеет смысл.",
+    text: "Короткий разговор — 20–30 минут — чтобы вы описали ситуацию, я задала уточняющие вопросы, и вместе мы определили, какой формат работы имеет смысл.",
   },
   {
     num: "02",
@@ -69,7 +73,7 @@ const processSteps = [
   {
     num: "03",
     title: "Регулярная работа",
-    text: "Встречи проходят в удобном ритме — онлайн или в кабинете. Темп и глубина работы определяются запросом, а не заранее заданной программой.",
+    text: "Встречи проходят в удобном ритме — онлайн или в кабинете в Москве. Темп и глубина работы определяются запросом, а не заранее заданной программой.",
   },
 ];
 
@@ -82,12 +86,12 @@ const supportCards = [
   {
     icon: UserRound,
     title: "Встреча с пожилым родителем",
-    text: "Работа строится уважительно, без ощущения, что человек стал «проблемой» для семьи или объектом исправления.",
+    text: "Я строю работу уважительно, без ощущения, что человек стал «проблемой» для семьи или объектом исправления.",
   },
   {
     icon: HeartHandshake,
     title: "Семейная встреча",
-    text: "При согласии участников можно создать пространство, где стороны слышат не только претензии, но и потребности друг друга.",
+    text: "При согласии участников я создаю пространство, где стороны слышат не только претензии, но и потребности друг друга.",
   },
   {
     icon: Leaf,
@@ -99,18 +103,18 @@ const supportCards = [
 const formats = [
   {
     icon: Video,
-    title: "Онлайн",
-    text: "Удобный формат для первичной консультации, регулярной терапии и ситуаций, когда очная встреча пока невозможна.",
+    title: "Онлайн — для клиентов по всему миру",
+    text: "Я работаю онлайн с клиентами из любой страны. Это удобный формат для первичной консультации и регулярной терапии — без привязки к географии.",
   },
   {
     icon: MapPin,
-    title: "Кабинет на Проспекте Мира",
-    text: "Очная работа проходит в PsychoPlace: м. Проспект Мира, улица Щепкина, дом 47, строение 1, этаж 3.",
+    title: "Кабинет в Москве",
+    text: "Очная работа проходит в PsychoPlace: м. Проспект Мира, улица Щепкина, дом 47, строение 1, этаж 3. Только для клиентов в Москве.",
   },
   {
     icon: HomeIcon,
     title: "Выезд по согласованию",
-    text: "Формат обсуждается отдельно, если состояние пожилого человека или семейная ситуация требуют более гибкого решения.",
+    text: "Формат обсуждается отдельно, если состояние пожилого человека или семейная ситуация требуют более гибкого решения. Только Москва.",
   },
 ];
 
@@ -133,7 +137,7 @@ const faqs = [
     a: "Да. Часто первый шаг — отдельная консультация взрослого ребёнка, чтобы спокойно описать ситуацию, ожидания и ограничения возможной помощи.",
   },
   {
-    q: "Юлия работает как врач или сиделка?",
+    q: "Вы работаете как врач или сиделка?",
     a: "Нет. Это психологическая работа. Она не заменяет медицинскую помощь, уход, диагностику или экстренное вмешательство.",
   },
   {
@@ -142,15 +146,19 @@ const faqs = [
   },
   {
     q: "Психодрама — это обязательно сцена и роли?",
-    a: "Нет. В частной практике метод может использоваться очень сдержанно: через исследование ролей, внутренних диалогов и незавершённых разговоров.",
+    a: "Нет. В частной практике я использую метод очень сдержанно: через исследование ролей, внутренних диалогов и незавершённых разговоров.",
   },
   {
     q: "Что происходит на вводной беседе?",
-    a: "Это короткий разговор — около 20–30 минут. Вы описываете ситуацию, Юлия задаёт уточняющие вопросы, и вместе вы определяете, какой формат работы имеет смысл и реалистичен.",
+    a: "Это короткий разговор — около 20–30 минут. Вы описываете ситуацию, я задаю уточняющие вопросы, и вместе мы определяем, какой формат работы имеет смысл и реалистичен.",
   },
   {
     q: "Как долго обычно длится работа?",
     a: "Это зависит от запроса. Иногда достаточно нескольких встреч, чтобы прояснить ситуацию и найти опору. Более глубокая работа строится постепенно, без заранее заданных сроков.",
+  },
+  {
+    q: "Вы работаете с клиентами за пределами России?",
+    a: "Да. Онлайн-формат доступен для клиентов из любой страны. Очные встречи — только в Москве.",
   },
 ];
 
@@ -173,6 +181,8 @@ function SectionHeading({
 }
 
 export default function Home() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <div className="site-shell min-h-screen bg-[var(--brand-milk)] text-[var(--brand-graphite)]">
       <header className="sticky top-0 z-50 border-b border-[rgba(37,37,37,0.08)] bg-[rgba(250,247,241,0.82)] backdrop-blur-xl">
@@ -180,7 +190,7 @@ export default function Home() {
           <a href="#top" className="brand-mark" aria-label="На главную">
             <img className="brand-logo-icon" src={brandLogo} alt="Фирменный знак Юлии" />
             <span>
-              <strong>Юлия</strong>
+              <strong>Юлия Александровская</strong>
               <small>психолог · психодраматист</small>
             </span>
           </a>
@@ -193,31 +203,67 @@ export default function Home() {
             ))}
           </div>
 
-          <a className="btn btn-quiet hidden md:inline-flex" href={telegramUrl} target="_blank" rel="noreferrer">
-            Вводная беседа
-          </a>
+          <div className="flex items-center gap-3">
+            <a className="btn btn-quiet hidden md:inline-flex" href={telegramUrl} target="_blank" rel="noreferrer">
+              Вводная беседа
+            </a>
+            <button
+              className="lg:hidden flex items-center justify-center w-10 h-10 rounded-lg text-[var(--brand-graphite)] hover:bg-[rgba(37,37,37,0.06)] transition-colors"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? "Закрыть меню" : "Открыть меню"}
+            >
+              {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </nav>
+
+        {/* Mobile menu */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden border-t border-[rgba(37,37,37,0.08)] bg-[rgba(250,247,241,0.97)] backdrop-blur-xl">
+            <div className="container py-4 flex flex-col gap-1">
+              {navItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="nav-link py-3 text-base border-b border-[rgba(37,37,37,0.06)] last:border-0"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.label}
+                </a>
+              ))}
+              <a
+                className="btn btn-quiet mt-3 w-full justify-center"
+                href={telegramUrl}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Вводная беседа
+              </a>
+            </div>
+          </div>
+        )}
       </header>
 
       <main id="top">
-        {/* HERO — clear positioning in first 5 seconds */}
+        {/* HERO */}
         <section className="hero-section overflow-hidden">
           <div className="container relative grid min-h-[calc(100vh-5rem)] items-center gap-12 py-16 lg:grid-cols-[0.92fr_1.08fr] lg:py-24">
             <div className="hero-copy animate-fade-up">
-              <span className="section-eyebrow">Частная психологическая практика · Москва</span>
+              <span className="section-eyebrow">Частная психологическая практика · Москва и онлайн по всему миру</span>
               <h1>Поддержка для взрослых детей и пожилых родителей — там, где разговор стал трудным</h1>
               <p className="hero-lead">
-                Юлия — дипломированный психолог и психодраматист. Она работает с взрослыми людьми, которые устали
-                нести тревогу за стареющего родителя, и с пожилыми людьми, которым важно чувствовать себя
-                услышанными — а не «проблемой» для семьи.
+                Меня зовут Юлия Валерьевна Александровская — я дипломированный психолог и психодраматист. Я работаю с
+                взрослыми людьми, которые устали нести тревогу за стареющего родителя, и с пожилыми людьми, которым
+                важно чувствовать себя услышанными — а не «проблемой» для семьи.
               </p>
 
               <div className="format-strip" aria-label="Форматы работы">
-                <span>Онлайн</span>
+                <span>Онлайн — для всего мира</span>
                 <i />
-                <span>кабинет в центре Москвы</span>
+                <span>кабинет в Москве</span>
                 <i />
-                <span>выезд по согласованию</span>
+                <span>выезд по согласованию (Москва)</span>
               </div>
 
               <div className="hero-actions">
@@ -247,13 +293,45 @@ export default function Home() {
           </div>
         </section>
 
-        {/* DUAL AUDIENCE — speaks to both adult child and elderly parent */}
+        {/* ABOUT YULIA — moved higher for trust and warmth */}
+        <section id="about" className="section-block about-section">
+          <div className="container grid gap-12 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+            <div className="about-image about-portrait">
+              <img src={yuliaPortrait} alt="Портрет Юлии Валерьевны Александровской, психолога-психодраматиста, в спокойном кабинете" />
+            </div>
+            <div>
+              <span className="section-eyebrow">Обо мне</span>
+              <h2>Меня зовут Юлия Валерьевна Александровская — дипломированный психолог-психодраматист</h2>
+              <p>
+                Я работаю с взрослыми людьми, семьями и пожилыми родителями в ситуациях, где важны не быстрые советы,
+                а аккуратное различение чувств, ролей, границ и возможных шагов. Принимаю онлайн — для клиентов
+                из любой страны, и очно — в Москве.
+              </p>
+              <div className="credentials">
+                <div>
+                  <BookOpen size={22} />
+                  <span>психологическое образование и психодраматический подход</span>
+                </div>
+                <div>
+                  <ShieldCheck size={22} />
+                  <span>ясные профессиональные, этические и медицинские границы</span>
+                </div>
+                <div>
+                  <Sparkles size={22} />
+                  <span>сдержанный, уважительный тон без давления и обещаний гарантированного результата</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* DUAL AUDIENCE */}
         <section className="section-block muted-section">
           <div className="container">
             <SectionHeading
               eyebrow="Кому это может помочь"
               title="Сложность семьи часто живёт сразу с двух сторон"
-              text="Важная часть подхода — не усиливать обвинение, а бережно различать чувства, роли и реальные ограничения каждого участника."
+              text="Важная часть моего подхода — не усиливать обвинение, а бережно различать чувства, роли и реальные ограничения каждого участника."
             />
             <div className="family-complexity-layout">
               <div className="two-voices">
@@ -289,44 +367,13 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ABOUT YULIA — moved higher for trust and warmth */}
-        <section id="about" className="section-block about-section">
-          <div className="container grid gap-12 lg:grid-cols-[1fr_0.9fr] lg:items-center">
-            <div className="about-image about-portrait">
-              <img src={yuliaPortrait} alt="Портрет Юлии, психолога-психодраматиста, в спокойном кабинете" />
-            </div>
-            <div>
-              <span className="section-eyebrow">О Юлии</span>
-              <h2>Дипломированный психолог-психодраматист с уважением к границам клиента</h2>
-              <p>
-                Юлия работает с взрослыми людьми, семьями и пожилыми родителями в ситуациях, где важны не быстрые советы,
-                а аккуратное различение чувств, ролей, границ и возможных шагов.
-              </p>
-              <div className="credentials">
-                <div>
-                  <BookOpen size={22} />
-                  <span>психологическое образование и психодраматический подход</span>
-                </div>
-                <div>
-                  <ShieldCheck size={22} />
-                  <span>ясные профессиональные, этические и медицинские границы</span>
-                </div>
-                <div>
-                  <Sparkles size={22} />
-                  <span>сдержанный, уважительный тон без давления и обещаний гарантированного результата</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* DIRECTIONS */}
         <section id="directions" className="section-block">
           <div className="container">
             <SectionHeading
               eyebrow="Два направления"
               title="Две ситуации — одно бережное пространство для разговора"
-              text="Сайт не разделяет клиентов на «правых» и «виноватых». Он помогает увидеть два возможных маршрута: семейный контакт и индивидуальную терапию взрослого человека."
+              text="Я не разделяю клиентов на «правых» и «виноватых». Есть два возможных маршрута: семейный контакт и индивидуальная терапия взрослого человека."
             />
 
             <div className="bridge-layout">
@@ -351,7 +398,7 @@ export default function Home() {
             <div className="bridge-image-panel">
               <img src={bridgeImage} alt="Абстрактная линия контакта между двумя сторонами" />
               <div>
-                <span className="section-eyebrow">Метафора сайта</span>
+                <span className="section-eyebrow">Метафора подхода</span>
                 <p>
                   Две стороны не противопоставлены друг другу. Между ними есть опыт, усталость и история, но также может
                   появиться тонкая линия контакта — если для разговора создано достаточно спокойное пространство.
@@ -385,7 +432,7 @@ export default function Home() {
         <section className="section-block">
           <div className="container">
             <SectionHeading
-              eyebrow="Что может делать Юлия"
+              eyebrow="Что я могу сделать"
               title="Поддержка начинается с понимания формата"
               text="Работа не сводится к одному сценарию. В зависимости от запроса возможна индивидуальная консультация, встреча с родителем или семейный разговор при согласии участников."
             />
@@ -409,8 +456,8 @@ export default function Home() {
           <div className="container">
             <SectionHeading
               eyebrow="Форматы работы"
-              title="Три организованных способа начать разговор"
-              text="Формат выбирается не случайно, а по ситуации: где клиенту безопаснее, что возможно для родителя и какая глубина работы сейчас уместна."
+              title="Онлайн — для всего мира. Очно — в Москве"
+              text="Онлайн-формат доступен для клиентов из любой страны. Очные встречи проходят в кабинете на Проспекте Мира в Москве."
             />
             <div className="format-grid">
               {formats.map((format) => {
@@ -432,7 +479,7 @@ export default function Home() {
           <div className="container">
             <div className="location-layout">
               <div className="location-card">
-                <span className="section-eyebrow">Офлайн-кабинет</span>
+                <span className="section-eyebrow">Офлайн-кабинет · только Москва</span>
                 <h2>Проспект Мира, PsychoPlace</h2>
                 <p>
                   Очные консультации проходят по адресу: м. Проспект Мира, улица Щепкина, дом 47, строение 1,
@@ -497,7 +544,7 @@ export default function Home() {
                 <span className="section-eyebrow">Границы помощи</span>
                 <h2>Психологическая поддержка не заменяет медицинскую помощь</h2>
                 <p>
-                  Работа Юлии не является медицинской диагностикой, лечением, уходом, кризисной службой или услугой
+                  Моя работа не является медицинской диагностикой, лечением, уходом, кризисной службой или услугой
                   сиделки. Если ситуация связана с угрозой жизни, острым психическим состоянием или необходимостью
                   медицинского вмешательства, важно обращаться к профильным специалистам и экстренным службам.
                 </p>
@@ -525,7 +572,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* FINAL CTA — premium, non-aggressive */}
+        {/* FINAL CTA */}
         <section id="contact" className="final-cta">
           <div className="container">
             <div className="final-card">
@@ -534,6 +581,7 @@ export default function Home() {
               <p>
                 Вводная беседа — это 20–30 минут, чтобы описать ситуацию, задать вопросы и понять, какой формат
                 работы имеет смысл. Это не терапевтическая сессия и не обязательство продолжать.
+                Я принимаю онлайн из любой страны.
               </p>
               <div className="final-actions">
                 <a className="btn btn-primary" href={telegramUrl} target="_blank" rel="noreferrer">
