@@ -404,10 +404,51 @@ The palette must stay warm, mature, restrained, and tactile: milk backgrounds, g
     min-height: 36rem;
   }
 
-  /* Floating quote card — top-right of hero */
-  .hero-quote-card {
+  /* Top-right stat badges */
+  .hero-stat-badges {
     position: absolute;
     top: 0;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .hero-stat-badge {
+    background: rgba(255, 253, 248, 0.88);
+    border: 1px solid rgba(184, 155, 114, 0.3);
+    border-radius: 1rem;
+    padding: 0.75rem 1.1rem;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 24px rgba(37, 37, 37, 0.08);
+    text-align: center;
+    min-width: 7rem;
+  }
+
+  .hero-stat-badge strong {
+    display: block;
+    font-family: "Spectral", Georgia, serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--brand-graphite);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-stat-badge span {
+    display: block;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(37, 37, 37, 0.48);
+    margin-top: 0.2rem;
+  }
+
+  /* Floating quote card — bottom-right of hero */
+  .hero-quote-card {
+    position: absolute;
+    bottom: 5rem;
     right: 0;
     z-index: 10;
     max-width: 20rem;

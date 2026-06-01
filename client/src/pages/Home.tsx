@@ -282,7 +282,18 @@ export default function Home() {
             </div>
 
             <div className="hero-visual animate-fade-up animation-delay-200">
-              {/* Top-right floating quote card with portrait */}
+              {/* Top-right stat badges */}
+              <div className="hero-stat-badges">
+                <div className="hero-stat-badge">
+                  <strong>8+</strong>
+                  <span>лет практики</span>
+                </div>
+                <div className="hero-stat-badge">
+                  <strong>Весь мир</strong>
+                  <span>онлайн</span>
+                </div>
+              </div>
+              {/* Bottom-right floating quote card with portrait */}
               <div className="hero-quote-card">
                 <div className="hero-quote-author">
                   <img
