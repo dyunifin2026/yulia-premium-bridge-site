@@ -282,9 +282,19 @@ export default function Home() {
             </div>
 
             <div className="hero-visual animate-fade-up animation-delay-200">
-              {/* Top-right floating quote card */}
+              {/* Top-right floating quote card with portrait */}
               <div className="hero-quote-card">
-                <span>подход</span>
+                <div className="hero-quote-author">
+                  <img
+                    src={yuliaPortrait}
+                    alt="Юлия Валерьевна Александровская"
+                    className="hero-quote-portrait"
+                  />
+                  <div>
+                    <strong>Юлия Александровская</strong>
+                    <span>психолог · психодраматист</span>
+                  </div>
+                </div>
                 <blockquote>«Не ускорить, а создать пространство, где разговор становится возможным»</blockquote>
               </div>
               <div className="hero-image-frame">
