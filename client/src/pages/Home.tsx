@@ -358,8 +358,8 @@ export default function Home() {
               <div className="volunteer-note">
                 <span className="volunteer-note__label">волонтёрская практика</span>
                 <div className="volunteer-note__content">
-                  <p>Консультирую на волонтёрских началах в&nbsp;Сервисе круглосуточной психологической помощи</p>
-                  <a href="https://zhivaya.org/" target="_blank" rel="noopener noreferrer" className="volunteer-note__logo-link" aria-label="Сервис Живая линия">
+                  <p>Консультирую на волонтёрских началах в&nbsp;«Живой линии» — крупнейшем в&nbsp;России центре добровольчества для психологов, где бесплатная помощь доступна всем желающим.</p>
+                  <a href="https://zhivaya.org/" target="_blank" rel="noopener noreferrer" className="volunteer-note__logo-link" aria-label="Живая линия — центр добровольчества для психологов">
                     <img src="/manus-storage/zhivaya-liniya-logo_78f031c9.webp" alt="Живая линия" className="volunteer-note__logo" />
                   </a>
                 </div>

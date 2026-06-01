@@ -401,7 +401,7 @@ The palette must stay warm, mature, restrained, and tactile: milk backgrounds, g
 
   .hero-visual {
     position: relative;
-    min-height: 36rem;
+    min-height: 40rem;
   }
 
   /* Floating quote card — top-right of hero */
@@ -471,7 +471,7 @@ The palette must stay warm, mature, restrained, and tactile: milk backgrounds, g
 
   .hero-image-frame {
     position: absolute;
-    inset: 11rem 0 0 5%;
+    inset: 13.5rem 0 0 5%;
     overflow: hidden;
     border: 1px solid rgba(184, 155, 114, 0.28);
     border-radius: 46% 46% 2rem 2rem;
