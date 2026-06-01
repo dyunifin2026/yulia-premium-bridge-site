@@ -36,7 +36,7 @@ jobs:
           password: ${{ secrets.BEGET_FTP_PASS }}
           local-dir: ./dist/public/
           server-dir: /dusha.help/public_html/
-          dangerous-clean-slate: false
+          dangerous-clean-slate: true
           exclude: |
             **/__manus__/**
             **/.gitkeep
