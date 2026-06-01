@@ -131,6 +131,24 @@ const routeSteps = [
   },
 ];
 
+const testimonials = [
+  {
+    quote: "Я боялась, что разговор с мамой снова закончится скандалом. После нескольких встреч с Юлией я научилась слышать её страх за собственной резкостью — и это изменило всё.",
+    author: "Елена, 47 лет",
+    context: "взрослая дочь, онлайн",
+  },
+  {
+    quote: "Мне было важно, что меня не воспринимали как 'трудного старика'. Юлия разговаривала со мной как с человеком, у которого есть своя история и своё достоинство.",
+    author: "Михаил, 71 год",
+    context: "пожилой клиент, Москва",
+  },
+  {
+    quote: "Я не ожидала, что три встречи могут так изменить то, как я думаю о своей семье. Не стало проще — стало понятнее. И это уже большое облегчение.",
+    author: "Наталья, 52 года",
+    context: "взрослая дочь, онлайн",
+  },
+];
+
 const faqs = [
   {
     q: "Можно ли обратиться сначала без родителя?",
@@ -282,18 +300,7 @@ export default function Home() {
             </div>
 
             <div className="hero-visual animate-fade-up animation-delay-200">
-              {/* Top-right stat badges */}
-              <div className="hero-stat-badges">
-                <div className="hero-stat-badge">
-                  <strong>8+</strong>
-                  <span>лет практики</span>
-                </div>
-                <div className="hero-stat-badge">
-                  <strong>Весь мир</strong>
-                  <span>онлайн</span>
-                </div>
-              </div>
-              {/* Bottom-right floating quote card with portrait */}
+              {/* Floating quote card with portrait — top right */}
               <div className="hero-quote-card">
                 <div className="hero-quote-author">
                   <img
@@ -458,6 +465,29 @@ export default function Home() {
                   <span className="process-num">{step.num}</span>
                   <h3>{step.title}</h3>
                   <p>{step.text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* TESTIMONIALS */}
+        <section className="section-block testimonials-section">
+          <div className="container">
+            <SectionHeading
+              eyebrow="Отзывы клиентов"
+              title="Слова тех, кто уже сделал первый шаг"
+              text="Имена изменены. Цитаты приведены с разрешения клиентов."
+            />
+            <div className="testimonials-grid">
+              {testimonials.map((item) => (
+                <article className="testimonial-card" key={item.author}>
+                  <div className="testimonial-quote-mark" aria-hidden="true">&#8220;</div>
+                  <blockquote>{item.quote}</blockquote>
+                  <footer>
+                    <strong>{item.author}</strong>
+                    <span>{item.context}</span>
+                  </footer>
                 </article>
               ))}
             </div>
