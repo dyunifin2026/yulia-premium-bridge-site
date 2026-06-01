@@ -35,7 +35,7 @@ jobs:
           username: ${{ secrets.BEGET_FTP_USER }}
           password: ${{ secrets.BEGET_FTP_PASS }}
           local-dir: ./dist/public/
-          server-dir: /
+          server-dir: ./
           dangerous-clean-slate: false
           exclude: |
             **/__manus__/**
