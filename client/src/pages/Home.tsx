@@ -282,6 +282,11 @@ export default function Home() {
             </div>
 
             <div className="hero-visual animate-fade-up animation-delay-200">
+              {/* Top-right floating quote card */}
+              <div className="hero-quote-card">
+                <span>подход</span>
+                <blockquote>«Не ускорить, а создать пространство, где разговор становится возможным»</blockquote>
+              </div>
               <div className="hero-image-frame">
                 <img src={heroImage} alt="Спокойный кабинет с двумя креслами для психологической консультации" />
               </div>
